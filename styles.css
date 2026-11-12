@@ -23,6 +23,10 @@ html,body{height:100%;margin:0;overflow:hidden;background:#120c18;font-family:In
 .music-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .music-btn[aria-pressed="true"] .slash{display:none}
 .music-btn:focus-visible{outline:3px solid #ffd27a;outline-offset:3px}
+.greeting{
+  position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);
+  z-index:6;width:min(200px,60vw);height:auto;pointer-events:none;
+}
 /* Moving elements */
 .cloudA{animation:cloudMove 46s linear infinite}
 .cloudB{animation:cloudMove 62s linear infinite;animation-delay:-20s}
