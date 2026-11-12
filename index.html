@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chhath Puja Four Days</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Shared gradients, figures and props for all four portrait scenes -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="skyDawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset=".6" stop-color="#ffe9c9"/><stop offset="1" stop-color="#ffc79a"/></linearGradient>
+    <linearGradient id="skyDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a6e"/><stop offset=".55" stop-color="#8a4a92"/><stop offset="1" stop-color="#ffa86b"/></linearGradient>
+    <linearGradient id="skyGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset=".55" stop-color="#ffb04d"/><stop offset="1" stop-color="#f0701f"/></linearGradient>
+    <linearGradient id="skyRose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd6e8"/><stop offset=".6" stop-color="#ffe6cc"/><stop offset="1" stop-color="#ffc9a0"/></linearGradient>
+    <linearGradient id="rvDawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7f2ff"/><stop offset=".4" stop-color="#7fcbe6"/><stop offset="1" stop-color="#3b8fb5"/></linearGradient>
+    <linearGradient id="rvDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4a8a"/><stop offset="1" stop-color="#2e2a55"/></linearGradient>
+    <linearGradient id="mudDawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9a077"/><stop offset=".45" stop-color="#9a6d46"/><stop offset="1" stop-color="#6b4429"/></linearGradient>
+    <linearGradient id="mudDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6e5040"/><stop offset="1" stop-color="#3e2a20"/></linearGradient>
+    <linearGradient id="rvGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#e8823a"/><stop offset="1" stop-color="#7a3024"/></linearGradient>
+    <linearGradient id="fogG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff6ea" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="sunDay" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#fffbe6"/><stop offset=".5" stop-color="#ffd45c"/><stop offset="1" stop-color="#ff9a3d"/></radialGradient>
+    <radialGradient id="sunGold" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#fff6c8"/><stop offset=".5" stop-color="#ffc24a"/><stop offset="1" stop-color="#f58a2c"/></radialGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6c4" stop-opacity=".95"/><stop offset="1" stop-color="#fff6c4" stop-opacity="0"/></radialGradient>
+
+    <g id="torso">
+      <path d="M30,70 Q50,62 70,70 L84,200 L16,200 Z" fill="currentColor" stroke="#2a1a2e" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M50,68 Q66,68 70,70 L84,200 L50,200 Z" fill="#000" opacity=".18"/>
+      <path d="M18,190 H82" stroke="#ffd166" stroke-width="3.5"/>
+      <path d="M34,72 Q22,112 30,172 L42,172 Q38,120 48,74 Z" fill="#ffd166" stroke="#2a1a2e" stroke-width="1.8"/>
+    </g>
+    <g id="head">
+      <path d="M28,44 Q22,80 34,86 L38,50 Z" fill="#2a1a2e"/>
+      <path d="M72,44 Q78,80 66,86 L62,50 Z" fill="#2a1a2e"/>
+      <rect x="46" y="56" width="8" height="10" fill="#f0bf98"/>
+      <circle cx="50" cy="42" r="20" fill="#f0bf98" stroke="#2a1a2e" stroke-width="2"/>
+      <path d="M29,42 Q28,18 50,18 Q72,18 71,42 Q66,28 50,28 Q36,28 29,42 Z" fill="#2a1a2e"/>
+      <ellipse cx="42" cy="44" rx="3.4" ry="3.6" fill="#1e1424"/>
+      <ellipse cx="58" cy="44" rx="3.4" ry="3.6" fill="#1e1424"/>
+      <circle cx="42" cy="44" r="2.2" fill="#6b3f2a" opacity=".85"/>
+      <circle cx="58" cy="44" r="2.2" fill="#6b3f2a" opacity=".85"/>
+      <circle cx="42.8" cy="43.2" r=".6" fill="#fff"/>
+      <circle cx="58.8" cy="43.2" r=".6" fill="#fff"/>
+      <path d="M37,40 Q42,35.5 47,40" stroke="#1e1424" stroke-width="2" fill="none"/>
+      <path d="M53,40 Q58,35.5 63,40" stroke="#1e1424" stroke-width="2" fill="none"/>
+      <path d="M46,55 Q50,57.5 54,55" stroke="#b5414f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="31" r="1.5" fill="#d8262a"/>
+    </g>
+    <symbol id="woman" viewBox="0 0 100 200">
+      <use href="#torso"/>
+      <path d="M32,78 Q20,112 24,142" stroke="#2a1a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M32,78 Q20,112 24,142" stroke="#f0bf98" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M68,78 Q80,104 76,132" stroke="#2a1a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M68,78 Q80,104 76,132" stroke="#f0bf98" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <use href="#head"/>
+    </symbol>
+    <symbol id="daura" viewBox="0 -24 100 224">
+      <use href="#torso"/>
+      <path d="M32,76 Q18,50 24,24" stroke="#2a1a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M32,76 Q18,50 24,24" stroke="#f0bf98" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M68,76 Q82,50 76,24" stroke="#2a1a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M68,76 Q82,50 76,24" stroke="#f0bf98" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <use href="#head"/>
+      <path d="M22,14 Q50,34 78,14 Z" fill="#e0a456" stroke="#2a1a2e" stroke-width="1.8"/>
+      <ellipse cx="50" cy="14" rx="28" ry="6" fill="#c98a3e" stroke="#2a1a2e" stroke-width="1.8"/>
+      <circle cx="40" cy="6" r="5" fill="#ff8a3d" stroke="#2a1a2e" stroke-width="1"/>
+      <circle cx="52" cy="2" r="5" fill="#ffd34a" stroke="#2a1a2e" stroke-width="1"/>
+      <circle cx="62" cy="7" r="5" fill="#e0404a" stroke="#2a1a2e" stroke-width="1"/>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 160 60">
+      <path d="M20,50 Q0,50 6,32 Q14,16 36,22 Q44,2 70,8 Q92,0 104,20 Q126,16 130,36 Q160,36 152,52 Z" fill="#fff" stroke="#b9a6d6" stroke-width="2"/>
+    </symbol>
+    <symbol id="diya" viewBox="-10 -14 20 18">
+      <ellipse cx="0" cy="0" rx="9" ry="3.5" fill="#d9783a" stroke="#2a1a2e" stroke-width="1"/>
+      <ellipse class="flame" cx="0" cy="-6" rx="2.5" ry="4.5" fill="#fff0a0"/>
+    </symbol>
+  </defs>
+</svg>
+
+<h1 class="title">Chhath Puja</h1>
+<button id="musicBtn" class="music-btn" aria-label="Play music" aria-pressed="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    <line class="slash" x1="3" y1="3" x2="21" y2="21"/>
+  </svg>
+</button>
+
+<main class="stage" id="stage">
+
+  <!-- DAY 1: Nahay Khay, morning -->
+  <section class="scene on" data-day="1">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Morning: a woman cooks over a clay stove, with a prasad thali beside her on the muddy ground">
+      <rect width="400" height="800" fill="url(#skyDawn)"/>
+      <g class="sunFloat"><circle cx="290" cy="200" r="150" fill="url(#halo)" class="glow"/><circle cx="290" cy="200" r="50" fill="url(#sunDay)" stroke="#e8823a" stroke-width="2"/></g>
+      <use href="#cloud" x="-30" y="110" width="170" height="64" class="cloudA"/>
+      <use href="#cloud" x="180" y="260" width="140" height="56" class="cloudB" opacity=".9"/>
+      <g class="birdsF" fill="none" stroke="#5a3a6a" stroke-width="2.5"><path class="flap" d="M60,300 q8,-8 16,0 q8,-8 16,0"/><path class="flap" d="M84,320 q7,-7 14,0 q7,-7 14,0"/></g>
+      <g class="birdsF b2" fill="none" stroke="#5a3a6a" stroke-width="2.5"><path class="flap" d="M40,220 q8,-8 16,0 q8,-8 16,0"/></g>
+      <rect y="600" width="400" height="200" fill="url(#mudDawn)"/>
+      <rect y="596" width="400" height="8" fill="#6b4429" stroke="#2a1a2e" stroke-width="1.5"/>
+      <!-- Stove and pot -->
+      <ellipse cx="90" cy="640" rx="36" ry="10" fill="#8a5034" stroke="#2a1a2e" stroke-width="2"/>
+      <rect x="58" y="604" width="64" height="34" rx="6" fill="#b8703f" stroke="#2a1a2e" stroke-width="2"/>
+      <ellipse cx="90" cy="600" rx="30" ry="9" fill="#e0822c" stroke="#2a1a2e" stroke-width="1.5"/>
+      <path class="steam" d="M84,582 q-6,-14 2,-26" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Woman cooking -->
+      <use href="#woman" x="170" y="330" width="150" height="300" color="#e0457b"/>
+      <!-- Prasad thali: rice, dal, puri -->
+      <ellipse cx="330" cy="650" rx="56" ry="16" fill="#ffe49a" stroke="#2a1a2e" stroke-width="2"/>
+      <circle cx="310" cy="646" r="11" fill="#fffbe6" stroke="#2a1a2e" stroke-width="1"/>
+      <circle cx="338" cy="642" r="10" fill="#ffd34a" stroke="#2a1a2e" stroke-width="1"/>
+      <circle cx="350" cy="654" r="8" fill="#ffb13b" stroke="#2a1a2e" stroke-width="1"/>
+      <use href="#diya" x="250" y="700" width="26" height="24"/>
+    </svg>
+  </section>
+
+  <!-- DAY 2: Kharna, dusk -->
+  <section class="scene" data-day="2">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Evening: a woman stirs kheer on a clay stove under a crescent moon, with diyas on the muddy ground">
+      <rect width="400" height="800" fill="url(#skyDusk)"/>
+      <g fill="#fff8d6">
+        <circle cx="60" cy="120" r="2" class="twinkle"/><circle cx="130" cy="80" r="1.6" class="twinkle" style="animation-delay:-1s"/>
+        <circle cx="330" cy="90" r="2" class="twinkle" style="animation-delay:-2s"/><circle cx="360" cy="260" r="1.6" class="twinkle" style="animation-delay:-.5s"/>
+      </g>
+      <g class="glow"><circle cx="300" cy="190" r="120" fill="url(#halo)"/></g>
+      <circle cx="300" cy="190" r="40" fill="#fff4cf"/>
+      <circle cx="314" cy="180" r="36" fill="#7a3f8a"/>
+      <use href="#cloud" x="-20" y="250" width="170" height="60" class="cloudA" opacity=".6"/>
+      <g class="birdsF" fill="none" stroke="#2a1a3a" stroke-width="2.5"><path class="flap" d="M70,300 q8,-8 16,0 q8,-8 16,0"/></g>
+      <rect y="600" width="400" height="200" fill="url(#mudDusk)"/>
+      <rect y="596" width="400" height="8" fill="#2e2018" stroke="#2a1a2e" stroke-width="1.5"/>
+      <!-- Clay stove with kheer -->
+      <ellipse cx="90" cy="640" rx="36" ry="10" fill="#5a3320" stroke="#2a1a2e" stroke-width="2"/>
+      <rect x="58" y="604" width="64" height="34" rx="6" fill="#b8703f" stroke="#2a1a2e" stroke-width="2"/>
+      <ellipse cx="90" cy="600" rx="30" ry="9" fill="#fff3d6" stroke="#2a1a2e" stroke-width="1.5"/>
+      <path d="M62,600 Q64,584 90,582 Q116,584 118,600" fill="#d98a3a" stroke="#2a1a2e" stroke-width="1.5"/>
+      <path class="flame" d="M80,640 Q90,616 100,640 Z" fill="#ffd34a"/>
+      <path class="steam" d="M90,574 q-8,-14 2,-26" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Stirring woman -->
+      <use href="#woman" x="150" y="330" width="150" height="300" color="#c2326b"/>
+      <!-- Kheer on banana leaf and fruit -->
+      <ellipse cx="330" cy="650" rx="58" ry="16" fill="#3f8a4a" stroke="#2a1a2e" stroke-width="2"/>
+      <ellipse cx="322" cy="646" rx="26" ry="8" fill="#fff3d6" stroke="#2a1a2e" stroke-width="1"/>
+      <circle cx="350" cy="650" r="8" fill="#ff8a3d" stroke="#2a1a2e" stroke-width="1"/>
+      <use href="#diya" x="110" y="700" width="26" height="24"/>
+      <use href="#diya" x="270" y="740" width="26" height="24"/>
+      <circle cx="123" cy="712" r="36" fill="url(#halo)" class="glow"/>
+      <circle cx="283" cy="752" r="36" fill="url(#halo)" class="glow"/>
+    </svg>
+  </section>
+
+  <!-- DAY 3: Sandhya Arghya, sunset -->
+  <section class="scene" data-day="3">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sunset: a woman in a red saree holds a fruit thali, a devotee stands in the river with a daura, and the sun sets">
+      <rect width="400" height="800" fill="url(#skyGold)"/>
+      <use href="#cloud" x="-20" y="110" width="170" height="64" class="cloudB" opacity=".6"/>
+      <use href="#cloud" x="200" y="200" width="150" height="58" class="cloudA" opacity=".5"/>
+      <g class="sunSet">
+        <circle cx="200" cy="420" r="150" fill="url(#halo)" class="glow"/>
+        <circle cx="200" cy="420" r="90" fill="url(#sunGold)" stroke="#f08a2c" stroke-width="2"/>
+      </g>
+      <g class="birdsF" fill="none" stroke="#7a2a14" stroke-width="2.5"><path class="flap" d="M300,260 q8,-8 16,0 q8,-8 16,0"/><path class="flap" d="M330,280 q6,-6 12,0 q6,-6 12,0"/></g>
+      <rect y="600" width="400" height="200" fill="url(#rvGold)"/>
+      <rect y="596" width="400" height="8" fill="#b8542a" stroke="#2a1a2e" stroke-width="1.5"/>
+      <g fill="none" stroke="#fff3c0" stroke-width="3" stroke-linecap="round" opacity=".7" stroke-dasharray="40 30">
+        <path class="flowR" d="M0,640 H400"/><path class="flowR" d="M0,680 H400" style="animation-delay:-1s"/><path class="flowR" d="M0,720 H400" style="animation-delay:-2s"/><path class="flowR" d="M0,760 H400" style="animation-delay:-.5s"/>
+      </g>
+      <!-- Woman in red with fruit thali -->
+      <use href="#woman" x="40" y="330" width="150" height="300" color="#c4262e"/>
+      <ellipse cx="115" cy="545" rx="62" ry="10" fill="#a8582a" stroke="#2a1a2e" stroke-width="2"/>
+      <circle cx="90" cy="530" r="11" fill="#ffb13b" stroke="#2a1a2e" stroke-width="1.2"/>
+      <circle cx="112" cy="524" r="12" fill="#ff8a3d" stroke="#2a1a2e" stroke-width="1.2"/>
+      <circle cx="134" cy="520" r="13" fill="#ffd34a" stroke="#2a1a2e" stroke-width="1.2"/>
+      <circle cx="156" cy="528" r="11" fill="#e0404a" stroke="#2a1a2e" stroke-width="1.2"/>
+      <!-- Devotee in the river with a daura -->
+      <use href="#daura" x="225" y="430" width="120" height="240" color="#e0457b"/>
+      <use href="#diya" x="330" y="700" width="26" height="24"/>
+      <use href="#diya" x="60" y="750" width="26" height="24"/>
+    </svg>
+  </section>
+
+  <!-- DAY 4: Usha Arghya, sunrise through fog -->
+  <section class="scene" data-day="4">
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sunrise: devotees with fruit baskets stand in the misty river as the sun rises behind the fog">
+      <rect width="400" height="800" fill="url(#skyRose)"/>
+      <g class="sunRise">
+        <circle cx="200" cy="520" r="150" fill="url(#halo)" class="glow"/>
+        <circle cx="200" cy="520" r="90" fill="url(#sunDay)" stroke="#f0a040" stroke-width="2"/>
+      </g>
+      <use href="#cloud" x="-20" y="120" width="170" height="64" class="cloudB"/>
+      <use href="#cloud" x="220" y="200" width="150" height="58" class="cloudA" opacity=".8"/>
+      <g class="birdsF" fill="none" stroke="#7a4a2e" stroke-width="2.5"><path class="flap" d="M60,240 q8,-8 16,0 q8,-8 16,0"/><path class="flap" d="M90,260 q7,-7 14,0 q7,-7 14,0"/></g>
+      <rect y="600" width="400" height="200" fill="url(#rvDawn)"/>
+      <rect y="596" width="400" height="8" fill="#8fd08a" stroke="#2a1a2e" stroke-width="1.5"/>
+      <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".5" stroke-dasharray="40 30">
+        <path class="flowR" d="M0,640 H400"/><path class="flowR" d="M0,680 H400" style="animation-delay:-1s"/><path class="flowR" d="M0,720 H400" style="animation-delay:-2s"/>
+      </g>
+      <!-- Devotees with fruit baskets -->
+      <use href="#daura" x="40" y="430" width="110" height="220" color="#f2a33a"/>
+      <use href="#daura" x="150" y="420" width="110" height="220" color="#e0457b"/>
+      <use href="#daura" x="260" y="430" width="110" height="220" color="#2e9e9a"/>
+      <!-- Fog in front of the sun and over the water -->
+      <g class="fogA" fill="url(#fogG)"><rect x="-80" y="500" width="560" height="70"/></g>
+      <g class="fogB" fill="url(#fogG)"><rect x="-80" y="600" width="560" height="60"/><rect x="-60" y="680" width="520" height="70"/></g>
+    </svg>
+  </section>
+
+</main>
+
+<!-- Day buttons: circles joined by a line -->
+<nav class="days" aria-label="Choose a day">
+  <span class="line"></span>
+  <button role="tab" aria-selected="true" data-day="1" aria-label="Day 1, Nahay Khay"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span>Nahay Khay</span></button>
+  <button role="tab" aria-selected="false" data-day="2" aria-label="Day 2, Kharna"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span>Kharna</span></button>
+  <button role="tab" aria-selected="false" data-day="3" aria-label="Day 3, Sandhya Arghya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16h18M7 16a5 5 0 0 1 10 0M12 4v5M9 6l3 3 3-3"/></svg><span>Sandhya Arghya</span></button>
+  <button role="tab" aria-selected="false" data-day="4" aria-label="Day 4, Usha Arghya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16h18M7 16a5 5 0 0 1 10 0M12 9V4M9 6l3-3 3 3M5 20h14"/></svg><span>Usha Arghya</span></button>
+</nav>
+
+<!-- Background music: no visible controls; the file sits in the same folder as this page -->
+<audio id="bgm" src="Chhath_Title_Song.mp4" preload="auto" loop></audio>
+
+<script>
+(function(){
+  var scenes = document.querySelectorAll('.scene');
+  var buttons = document.querySelectorAll('.days button');
+  var current = 1, timer = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(day){
+    current = day;
+    scenes.forEach(function(s){ s.classList.toggle('on', Number(s.dataset.day) === day); });
+    buttons.forEach(function(b){ b.setAttribute('aria-selected', Number(b.dataset.day) === day ? 'true' : 'false'); });
+  }
+  function next(){ show(current % 4 + 1); }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      show(Number(b.dataset.day));
+      if (timer) { clearInterval(timer); timer = setInterval(next, 9000); }
+    });
+  });
+
+  if (!reduce) { timer = setInterval(next, 9000); }
+
+  // Background music at 70% volume. Browsers block sound until the viewer interacts,
+  // so if the first attempt is refused, it starts on the first tap, click or key press.
+  var bgm = document.getElementById('bgm');
+  var musicBtn = document.getElementById('musicBtn');
+  if(bgm && musicBtn){
+    bgm.volume = 0.7;
+
+    musicBtn.addEventListener('click', function(){
+      if(bgm.paused){
+        bgm.play().then(function(){ musicBtn.setAttribute('aria-pressed', 'true'); }).catch(function(){});
+      } else {
+        bgm.pause();
+        musicBtn.setAttribute('aria-pressed', 'false');
+      }
+    })
+  }
+  
+})();
+</script>
+</body>
+</html>

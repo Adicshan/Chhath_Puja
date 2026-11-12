@@ -1,0 +1,60 @@
+/* Mobile-first: each day is a tall portrait scene that fills the phone screen.
+   Desktop shows the same portrait scene centred in a phone-width column. */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:#120c18;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+
+.stage{position:fixed;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:100%;height:100dvh;overflow:hidden;background:#120c18}
+.scene{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.scene.on{opacity:1}
+.scene svg{width:100%;height:100%;display:block}
+
+/* Day caption, sits above the buttons */
+.caption{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));width:80vw;max-width:400px;margin:0;padding:10px 12px;z-index:4;border-radius:12px;background:rgba(20,10,20,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:#fff;font-size:13px;line-height:1.5;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+/* Day buttons: circles joined by a line, 80% of the screen width */
+.days{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(28px + env(safe-area-inset-bottom,0px));width:80vw;max-width:400px;height:46px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.days .line{position:absolute;left:23px;right:23px;top:50%;height:2px;margin-top:-1px;background:rgba(255,255,255,.75);z-index:0}
+.days button{position:relative;z-index:1;width:46px;height:46px;border-radius:50%;padding:0;border:2px solid #fff;background:rgba(20,10,20,.55);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.days button[aria-selected="true"]{background:#d9572b;border-color:#fff}
+.days button:focus-visible{outline:3px solid #ffd27a;outline-offset:3px}
+.days button svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.days button span{position:absolute;top:52px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:600;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.music-btn{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:7;width:44px;height:44px;border-radius:50%;padding:0;border:2px solid #fff;background:rgba(20,10,20,.55);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.music-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.music-btn[aria-pressed="true"] .slash{display:none}
+.music-btn:focus-visible{outline:3px solid #ffd27a;outline-offset:3px}
+/* Moving elements */
+.cloudA{animation:cloudMove 46s linear infinite}
+.cloudB{animation:cloudMove 62s linear infinite;animation-delay:-20s}
+@keyframes cloudMove{from{transform:translateX(-260px)}to{transform:translateX(260px)}}
+.birdsF{animation:birdFly 16s linear infinite}
+.birdsF.b2{animation-delay:-8s}
+@keyframes birdFly{from{transform:translate(-140px,0)}to{transform:translate(480px,-50px)}}
+.flap{animation:flap 1s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.35)}}
+.flowR{animation:flowR 3s linear infinite}
+@keyframes flowR{from{stroke-dashoffset:-168}to{stroke-dashoffset:0}}
+.sunFloat{animation:sunFloat 7s ease-in-out infinite alternate}
+@keyframes sunFloat{from{transform:translateY(-6px)}to{transform:translateY(6px)}}
+.sunSet{animation:sunSet 18s linear infinite}
+@keyframes sunSet{0%{transform:translateY(-40px);opacity:0}8%{opacity:1}85%{transform:translateY(170px);opacity:1}100%{transform:translateY(170px);opacity:0}}
+.sunRise{animation:sunRise 18s linear infinite}
+@keyframes sunRise{0%{transform:translateY(170px);opacity:0}10%{opacity:1}90%{transform:translateY(-40px);opacity:1}100%{transform:translateY(-40px);opacity:1}}
+.glow{animation:pulse 3.6s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.4}to{opacity:.8}}
+.flame{animation:flick 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+@keyframes flick{0%,100%{transform:scale(1,1);opacity:.95}50%{transform:scale(.88,1.12);opacity:.7}}
+.steam{animation:steam 4s ease-in-out infinite}
+@keyframes steam{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-10px);opacity:.9}}
+.fogA{animation:fogA 26s ease-in-out infinite alternate}
+.fogB{animation:fogA 20s ease-in-out infinite alternate-reverse}
+@keyframes fogA{from{transform:translateX(-40px)}to{transform:translateX(40px)}}
+.twinkle{animation:pulse 2.4s ease-in-out infinite alternate}
+
+/* Each day's sky colour shows above and below if the screen is wider than the art */
+.scene[data-day="1"]{background:#ffc79a}
+.scene[data-day="2"]{background:#2a2a6e}
+.scene[data-day="3"]{background:#f0701f}
+.scene[data-day="4"]{background:#ffd0a0}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
