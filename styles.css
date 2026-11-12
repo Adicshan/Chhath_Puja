@@ -41,8 +41,10 @@ html,body{height:100%;margin:0;overflow:hidden;background:#120c18;font-family:In
 .share-btn:hover svg{animation-play-state:paused;transform:scale(1.15)}
 .share-btn:focus-visible{outline:3px solid #ffd27a;outline-offset:3px}
 
-.caption{position:absolute;left:50%;transform:translateX(-50%);bottom:55vh;width:95vw;max-width:480px;margin:0;padding:14px 18px;z-index:4;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.1) 60%,rgba(255,255,255,.16) 100%);border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.12),0 12px 32px rgba(0,0,0,.22);color:#2a2a6e;font-size:14px;line-height:1.55;text-align:center;}
-.caption span{font-weight:800;color:#d9572b}
+.caption{position:absolute;left:calc(50% + 22px);transform:translateX(-50%);bottom:55vh;width:min(calc(95vw - 44px),436px);height:112px;margin:0;padding:14px 18px;z-index:4;display:flex;align-items:center;justify-content:center;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.1) 60%,rgba(255,255,255,.16) 100%);border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.12),0 12px 32px rgba(0,0,0,.22);color:#000;font-size:14px;line-height:1.55;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+.captions-hidden .caption{display:none}
+.caption span{color:rgb(30, 1, 93);font-weight:600}
+.caption-toggle{position:fixed;left:calc(50% + 22px - min(calc(47.5vw - 22px),218px) - 44px);bottom:calc(55vh + 38px);z-index:7;width:36px;height:36px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:linear-gradient(135deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.08) 100%);backdrop-filter:blur(12px) saturate(160%);-webkit-backdrop-filter:blur(12px) saturate(160%);color:#fff;font-size:18px;font-weight:700;line-height:1;cursor:pointer}
 @keyframes shareFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @media (prefers-reduced-motion: reduce){.share-btn svg{animation:none}}
 /* Moving elements */

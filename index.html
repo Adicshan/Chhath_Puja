@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="Asset/Chhath_favicon.png" type="image/png">
 </head>
-<body>
+<body class="captions-hidden">
 
 <!-- Shared gradients, figures and props for all four portrait scenes -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -93,6 +93,7 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
 </a>
 
+<button id="captionBtn" class="caption-toggle" aria-label="Show caption" aria-expanded="false">&gt;</button>
 <main class="stage" id="stage">
 
   <!-- DAY 1: Nahay Khay, morning -->
@@ -270,6 +271,18 @@
         musicBtn.setAttribute('aria-pressed', 'false');
       }
     })
+  }
+
+
+    // Show or hide the day captions with the < and > button
+  var capBtn = document.getElementById('captionBtn');
+  if (capBtn) {
+    capBtn.addEventListener('click', function(){
+      var hidden = document.body.classList.toggle('captions-hidden');
+      capBtn.textContent = hidden ? '>' : '<';
+      capBtn.setAttribute('aria-label', hidden ? 'Show caption' : 'Hide caption');
+      capBtn.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+    });
   }
   
 })();
